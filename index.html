@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineMatch - Trova Match</title>
+    <title>CineMatch - Home Page</title>
+    <!-- Collegamento al foglio di stile CSS esterno -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,68 +15,54 @@
             <h1>🎬 Cine<span>Match</span></h1>
         </div>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index.html" class="active">Home</a>
             <a href="visione.html">Visione & Concept</a>
-            <a href="match.html" class="active">Trova Match</a>
+            <a href="match.html">Trova Match</a>
         </nav>
     </header>
 
-    <!-- APPLICAZIONE SIMULATORE -->
-    <main class="simulator-container">
-        
-        <!-- COUNTER MATCH SALVATI -->
-        <div class="counter-box">
-            <span>Match effettuati: <strong id="contatore-match">0</strong></span>
+    <!-- BANNER PRINCIPALE (HERO) -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Non andare al cinema da solo!</h2>
+            <p>Trova altre persone nella tua città che vogliono vedere il tuo stesso film in sala.</p>
+            <div class="hero-buttons">
+                <a href="match.html" class="btn btn-primary">Prova il Simulatore</a>
+                <a href="visione.html" class="btn btn-secondary">Scopri il Progetto</a>
+            </div>
         </div>
+    </section>
 
-        <!-- SCHEDA PROFILO -->
-        <div class="profile-card" id="card-profilo">
+    <!-- SEZIONE INFORMAZIONI RAPIDE -->
+    <section class="info-section">
+        <h3>Perché scegliere CineMatch?</h3>
+        <div class="cards-grid">
             
-            <!-- Foto dell'utente -->
-            <div class="image-wrapper">
-                <img id="foto-utente" src="" alt="Foto profilo">
-                <span id="percentuale-affinita" class="badge-affinita">0% Affinità</span>
+            <div class="card">
+                <div class="card-icon">🍿</div>
+                <h4>Stessi Gusti</h4>
+                <p>L'app confronta i tuoi generi ed i tuoi registi preferiti per trovarti amici affini.</p>
             </div>
 
-            <!-- Informazioni Utente -->
-            <div class="profile-info">
-                <h2 id="nome-utente">Nome Utente</h2>
-                <p id="citta-utente" class="location-text">📍 Città</p>
-                
-                <div class="movie-box">
-                    <span>Vuole vedere:</span>
-                    <strong id="film-preferito">Titolo Film</strong>
-                </div>
-
-                <div class="tags-section">
-                    <p>Generi amati:</p>
-                    <div id="lista-tags" class="tags-container">
-                        <!-- Generati da JavaScript -->
-                    </div>
-                </div>
+            <div class="card">
+                <div class="card-icon">📍</div>
+                <h4>Vicinanza Geografica</h4>
+                <p>Trova cinefili vicino a te che frequentano le tue stesse sale cinematografiche.</p>
             </div>
 
-            <!-- PULSANTI LIKE / DISLIKE -->
-            <div class="buttons-section">
-                <button id="btn-dislike" class="btn-round btn-no">❌</button>
-                <button id="btn-like" class="btn-round btn-yes">❤️</button>
+            <div class="card">
+                <div class="card-icon">💬</div>
+                <h4>Chat Privata</h4>
+                <p>Quando scatta il match potete subito chattare per decidere l'orario dello spettacolo.</p>
             </div>
 
         </div>
-
-        <!-- NOTIFICA MATCH -->
-        <div id="messaggio-match" class="match-banner hidden">
-            🎉 <strong>È UN MATCH!</strong> Potete organizzare la visione insieme!
-        </div>
-
-    </main>
+    </section>
 
     <!-- PIÈ DI PAGINA -->
     <footer>
-        <p>© 2026 CineMatch - App Simulator</p>
+        <p>© 2026 CineMatch - Progetto Scolastico / Github Repository</p>
     </footer>
 
-    <!-- INCLUSIONE JAVASCRIPT -->
-    <script src="app.js"></script>
 </body>
 </html>
