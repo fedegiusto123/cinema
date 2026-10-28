@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch - Trova Match</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA DI NAVIGAZIONE -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>🎬 Cine<span>Match</span></h1>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="visione.html">Visione & Concept</a>
+            <a href="match.html" class="active">Trova Match</a>
+        </nav>
+    </header>
+
+    <!-- APPLICAZIONE SIMULATORE -->
+    <main class="simulator-container">
+        
+        <!-- COUNTER MATCH SALVATI -->
+        <div class="counter-box">
+            <span>Match effettuati: <strong id="contatore-match">0</strong></span>
+        </div>
+
+        <!-- SCHEDA PROFILO -->
+        <div class="profile-card" id="card-profilo">
+            
+            <!-- Foto dell'utente -->
+            <div class="image-wrapper">
+                <img id="foto-utente" src="" alt="Foto profilo">
+                <span id="percentuale-affinita" class="badge-affinita">0% Affinità</span>
+            </div>
+
+            <!-- Informazioni Utente -->
+            <div class="profile-info">
+                <h2 id="nome-utente">Nome Utente</h2>
+                <p id="citta-utente" class="location-text">📍 Città</p>
+                
+                <div class="movie-box">
+                    <span>Vuole vedere:</span>
+                    <strong id="film-preferito">Titolo Film</strong>
+                </div>
+
+                <div class="tags-section">
+                    <p>Generi amati:</p>
+                    <div id="lista-tags" class="tags-container">
+                        <!-- Generati da JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- PULSANTI LIKE / DISLIKE -->
+            <div class="buttons-section">
+                <button id="btn-dislike" class="btn-round btn-no">❌</button>
+                <button id="btn-like" class="btn-round btn-yes">❤️</button>
+            </div>
+
+        </div>
+
+        <!-- NOTIFICA MATCH -->
+        <div id="messaggio-match" class="match-banner hidden">
+            🎉 <strong>È UN MATCH!</strong> Potete organizzare la visione insieme!
+        </div>
+
+    </main>
+
+    <!-- PIÈ DI PAGINA -->
+    <footer>
+        <p>© 2026 CineMatch - App Simulator</p>
+    </footer>
+
+    <!-- INCLUSIONE JAVASCRIPT -->
+    <script src="app.js"></script>
+</body>
+</html>
