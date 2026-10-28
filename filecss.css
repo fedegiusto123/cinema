@@ -1,1 +1,360 @@
+/* ==========================================================================
+CINEMATCH - FOGLIO DI STILE COMPATTO ED ESSENZIALE
+========================================================================== */
 
+/* Stili generali della pagina */
+
+{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color: #0f172a;
+color: #ffffff;
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+/* 1. BARRA DI NAVIGAZIONE */
+.navbar {
+background-color: #1e293b;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 30px;
+border-bottom: 2px solid #334155;
+}
+
+.logo h1 {
+font-size: 24px;
+color: #ffffff;
+}
+
+.logo span {
+color: #e11d48; /* Rosso Cinema */
+}
+
+.navbar nav a {
+color: #cbd5e1;
+text-decoration: none;
+margin-left: 20px;
+font-weight: bold;
+font-size: 14px;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+color: #e11d48;
+}
+
+/* 2. PULSANTI STANDARD */
+.btn {
+display: inline-block;
+padding: 10px 20px;
+border-radius: 5px;
+text-decoration: none;
+font-weight: bold;
+margin: 5px;
+}
+
+.btn-primary {
+background-color: #e11d48;
+color: white;
+}
+
+.btn-primary:hover {
+background-color: #be123c;
+}
+
+.btn-secondary {
+background-color: #334155;
+color: white;
+}
+
+.btn-secondary:hover {
+background-color: #475569;
+}
+
+/* 3. HOME PAGE (HERO & SEZIONI) */
+.hero-section {
+text-align: center;
+padding: 60px 20px;
+background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+.hero-content h2 {
+font-size: 32px;
+margin-bottom: 15px;
+}
+
+.hero-content p {
+font-size: 18px;
+color: #94a3b8;
+margin-bottom: 25px;
+}
+
+.info-section {
+max-width: 900px;
+margin: 40px auto;
+padding: 0 20px;
+text-align: center;
+}
+
+.info-section h3 {
+font-size: 24px;
+margin-bottom: 30px;
+}
+
+.cards-grid {
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+.card {
+background-color: #1e293b;
+border: 1px solid #334155;
+border-radius: 8px;
+padding: 20px;
+width: 250px;
+text-align: center;
+}
+
+.card-icon {
+font-size: 40px;
+margin-bottom: 10px;
+}
+
+.card h4 {
+margin-bottom: 10px;
+color: #f8fafc;
+}
+
+.card p {
+font-size: 14px;
+color: #94a3b8;
+}
+
+/* 4. PAGINA VISIONE */
+.page-container {
+max-width: 800px;
+margin: 30px auto;
+padding: 0 20px;
+flex: 1;
+}
+
+.text-block {
+background-color: #1e293b;
+padding: 25px;
+border-radius: 8px;
+margin-bottom: 25px;
+border: 1px solid #334155;
+}
+
+.text-block h2 {
+color: #e11d48;
+margin-bottom: 15px;
+}
+
+.text-block p {
+line-height: 1.6;
+color: #cbd5e1;
+margin-bottom: 15px;
+}
+
+.step-box {
+display: flex;
+align-items: flex-start;
+background-color: #0f172a;
+padding: 15px;
+border-radius: 6px;
+margin-top: 15px;
+}
+
+.step-num {
+background-color: #e11d48;
+color: white;
+font-weight: bold;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 15px;
+flex-shrink: 0;
+}
+
+.step-box h3 {
+font-size: 16px;
+margin-bottom: 5px;
+}
+
+.step-box p {
+font-size: 14px;
+color: #94a3b8;
+margin-bottom: 0;
+}
+
+.center-btn {
+text-align: center;
+margin-top: 20px;
+}
+
+/* 5. SIMULATORE MATCH */
+.simulator-container {
+max-width: 400px;
+margin: 20px auto;
+padding: 0 15px;
+flex: 1;
+}
+
+.counter-box {
+text-align: center;
+background-color: #1e293b;
+padding: 10px;
+border-radius: 5px;
+margin-bottom: 15px;
+font-size: 14px;
+}
+
+.counter-box strong {
+color: #10b981;
+}
+
+.profile-card {
+background-color: #1e293b;
+border-radius: 12px;
+overflow: hidden;
+border: 1px solid #334155;
+}
+
+.image-wrapper {
+position: relative;
+height: 260px;
+}
+
+.image-wrapper img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.badge-affinita {
+position: absolute;
+top: 10px;
+right: 10px;
+background-color: #10b981;
+color: #000;
+font-weight: bold;
+font-size: 12px;
+padding: 4px 8px;
+border-radius: 12px;
+}
+
+.profile-info {
+padding: 15px;
+}
+
+.profile-info h2 {
+font-size: 20px;
+}
+
+.location-text {
+font-size: 13px;
+color: #94a3b8;
+margin-bottom: 10px;
+}
+
+.movie-box {
+background-color: #0f172a;
+padding: 8px 12px;
+border-radius: 6px;
+font-size: 13px;
+margin-bottom: 10px;
+}
+
+.movie-box strong {
+color: #ec4899;
+}
+
+.tags-section p {
+font-size: 12px;
+color: #94a3b8;
+margin-bottom: 5px;
+}
+
+.tags-container {
+display: flex;
+gap: 5px;
+flex-wrap: wrap;
+}
+
+.tag {
+background-color: #334155;
+font-size: 11px;
+padding: 3px 8px;
+border-radius: 10px;
+}
+
+.buttons-section {
+display: flex;
+justify-content: space-around;
+padding: 15px;
+border-top: 1px solid #334155;
+}
+
+.btn-round {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+border: none;
+font-size: 20px;
+cursor: pointer;
+}
+
+.btn-no {
+background-color: #334155;
+}
+
+.btn-no:hover {
+background-color: #f43f5e;
+}
+
+.btn-yes {
+background-color: #334155;
+}
+
+.btn-yes:hover {
+background-color: #10b981;
+}
+
+.match-banner {
+margin-top: 15px;
+background-color: #065f46;
+color: #a7f3d0;
+padding: 12px;
+border-radius: 6px;
+text-align: center;
+font-size: 14px;
+}
+
+.hidden {
+display: none;
+}
+
+/* 6. FOOTER */
+footer {
+text-align: center;
+padding: 15px;
+background-color: #1e293b;
+border-top: 1px solid #334155;
+font-size: 12px;
+color: #64748b;
+margin-top: auto;
+}
