@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMatch - Home Page</title>
+    <!-- Foglio di stile CSS personalizzato -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <!-- BARRA DI NAVIGAZIONE -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>🎬 Cine<span>Match</span></h1>
+        </div>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="visione.html">Visione & Concept</a>
+            <a href="match.html">Trova Match</a>
+        </nav>
+    </header>
+
+    <!-- BANNER PRINCIPALE (HERO) -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Non andare al cinema da solo!</h2>
+            <p>Trova altre persone nella tua città che vogliono vedere il tuo stesso film in sala.</p>
+            <div class="hero-buttons">
+                <a href="match.html" class="btn btn-primary">Prova il Simulatore</a>
+                <a href="visione.html" class="btn btn-secondary">Scopri il Progetto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEZIONE INFORMAZIONI RAPIDE -->
+    <section class="info-section">
+        <h3>Perché scegliere CineMatch?</h3>
+        <div class="cards-grid">
+            
+            <div class="card">
+                <div class="card-icon">🍿</div>
+                <h4>Stessi Gusti</h4>
+                <p>L'app confronta i tuoi generi ed i tuoi registi preferiti per trovarti amici affini.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📍</div>
+                <h4>Vicinanza Geografica</h4>
+                <p>Trova cinefili vicino a te che frequentano le tue stesse sale cinematografiche.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💬</div>
+                <h4>Chat Privata</h4>
+                <p>Quando scatta il match potete subito chattare per decidere l'orario dello spettacolo.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PIÈ DI PAGINA -->
+    <footer>
+        <p>© 2026 CineMatch - Progetto Scolastico / Github Repository</p>
+    </footer>
+
+</body>
+</html>
