@@ -3,66 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineMatch - Home Page</title>
-    <!-- Collegamento al foglio di stile CSS esterno -->
+    <title>CinemaMatch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BARRA DI NAVIGAZIONE -->
-    <header class="navbar">
-        <div class="logo">
-            <h1>🎬 Cine<span>Match</span></h1>
-        </div>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="visione.html">Visione & Concept</a>
-            <a href="match.html">Trova Match</a>
-        </nav>
-    </header>
+    <div class="container">
+        <h1>🎬 CinemaMatch</h1>
 
-    <!-- BANNER PRINCIPALE (HERO) -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h2>Non andare al cinema da solo!</h2>
-            <p>Trova altre persone nella tua città che vogliono vedere il tuo stesso film in sala.</p>
-            <div class="hero-buttons">
-                <a href="match.html" class="btn btn-primary">Prova il Simulatore</a>
-                <a href="visione.html" class="btn btn-secondary">Scopri il Progetto</a>
+        <!-- Schermata dei profili -->
+        <div id="swipe-screen">
+            <div id="card" class="card">
+                <img id="user-img" src="" alt="Foto">
+                <div class="info">
+                    <h2 id="user-name">Nome</h2>
+                    <span id="movie-badge">Film</span>
+                    <p id="user-bio">Bio...</p>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn no" onclick="nextProfile(false)">❌ Salta</button>
+                <button class="btn yes" onclick="nextProfile(true)">❤️ Ci sto!</button>
             </div>
         </div>
-    </section>
 
-    <!-- SEZIONE INFORMAZIONI RAPIDE -->
-    <section class="info-section">
-        <h3>Perché scegliere CineMatch?</h3>
-        <div class="cards-grid">
-            
-            <div class="card">
-                <div class="card-icon">🍿</div>
-                <h4>Stessi Gusti</h4>
-                <p>L'app confronta i tuoi generi ed i tuoi registi preferiti per trovarti amici affini.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">📍</div>
-                <h4>Vicinanza Geografica</h4>
-                <p>Trova cinefili vicino a te che frequentano le tue stesse sale cinematografiche.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">💬</div>
-                <h4>Chat Privata</h4>
-                <p>Quando scatta il match potete subito chattare per decidere l'orario dello spettacolo.</p>
-            </div>
-
+        <!-- Schermata Match (nascosta all'inizio) -->
+        <div id="match-screen" class="hidden">
+            <h2>🎉 È un Match!</h2>
+            <p id="match-text">Avete scelto lo stesso film!</p>
+            <button class="btn yes" onclick="resetApp()">Torna ai film</button>
         </div>
-    </section>
 
-    <!-- PIÈ DI PAGINA -->
-    <footer>
-        <p>© 2026 CineMatch - Progetto Scolastico / Github Repository</p>
-    </footer>
+        <!-- Pubblicità a comparsa (appare ogni tanto) -->
+        <div id="ad-popup" class="hidden">
+            <div class="ad-box">
+                <h3>🍿 Offerta Popcorn!</h3>
+                <p>Prendi 2 menu al prezzo di 1 al cinema!</p>
+                <button onclick="closeAd()">Chiudi</button>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        // Lista semplice dei profili
+        const profiles = [
+            {
+                name: "Marco, 19",
+                movie: "Interstellar",
+                bio: "Adoro i film di fantascienza.",
+                img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400"
+            },
+            {
+                name: "Sara, 18",
+                movie: "Dune - Parte 2",
+                bio: "Cerco compagnia per i film epici.",
+                img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400"
+            },
+            {
+                name:"kevin,67",
+                movie:"paura e delirio a las vengas", 
+                bio:"cerco i film più belli con le persone più belle",
+                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTitYXfECB1ITqkp5q_SuGm2QGsaHQSv0o8lCowh2uQ&s=10"
+            },
+            {
+                name:"mohamedali, 33",
+                movie:"sweetie fox minecraft gameplay", 
+                bio:"cerco film emozionanti che fanno salire le temperature in sala.ragazza bella", 
+                img:"https://www.gedistatic.it/content/gedi/img/huffingtonpost/2021/09/01/051328253-b989eac0-b3f5-4f7e-ab34-a3fdd3ecf6c9.jpg"
+            }
+        ];
+
+        let index = 0;
+        let count = 0;
+
+        function showProfile() {
+            if (index >= profiles.length) {
+                document.getElementById("swipe-screen").innerHTML = "<h3>Hai finito i film per oggi!</h3>";
+                return;
+            }
+
+            let p = profiles[index];
+            document.getElementById("user-name").innerText = p.name;
+            document.getElementById("movie-badge").innerText = "Vuole vedere: " + p.movie;
+            document.getElementById("user-bio").innerText = p.bio;
+            document.getElementById("user-img").src = p.img;
+        }
+
+        function nextProfile(liked) {
+            count++;
+
+            // Mostra la pubblicità alla seconda interazione
+            if (count === 2) {
+                document.getElementById("ad-popup").classList.remove("hidden");
+                return;
+            }
+
+            if (liked) {
+                document.getElementById("swipe-screen").classList.add("hidden");
+                document.getElementById("match-screen").classList.remove("hidden");
+                document.getElementById("match-text").innerText = `Anche a ${profiles[index].name} va di vedere "${profiles[index].movie}"!`;
+            } else {
+                index++;
+                showProfile();
+            }
+        }
+
+        function closeAd() {
+            document.getElementById("ad-popup").classList.add("hidden");
+            index++;
+            showProfile();
+        }
+
+        function resetApp() {
+            index = 0;
+            count = 0;
+            document.getElementById("match-screen").classList.add("hidden");
+            document.getElementById("swipe-screen").classList.remove("hidden");
+            showProfile();
+        }
+
+        // Avvia l'app
+        showProfile();
+    </script>
 </body>
 </html>
