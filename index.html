@@ -1,4 +1,4 @@
-//da questa riga alla riga 24 Lorenzo bucossi
+/*da questa riga alla riga 24 Lorenzo bucossi*/
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -22,21 +22,20 @@
                     <p id="user-bio">Bio...</p>
                 </div>
             </div>
-//da questa riga alla riga 48 kevin motofelea
+/*da questa riga alla riga 48 kevin motofelea*/
             <div class="buttons">
                 <button class="btn no" onclick="nextProfile(false)">❌ Salta</button>
                 <button class="btn yes" onclick="nextProfile(true)">❤️ Ci sto!</button>
             </div>
         </div>
 
-        <!-- Schermata Match (nascosta all'inizio) -->
+>
         <div id="match-screen" class="hidden">
             <h2>🎉 È un Match!</h2>
             <p id="match-text">Avete scelto lo stesso film!</p>
             <button class="btn yes" onclick="resetApp()">Torna ai film</button>
         </div>
 
-        <!-- Pubblicità a comparsa (appare ogni tanto) -->
         <div id="ad-popup" class="hidden">
             <div class="ad-box">
                 <h3>🍿 Offerta Popcorn!</h3>
@@ -47,7 +46,7 @@
     </div>
 
     <script>
-        // da questa riga alla riga alla fine: Alessandro Pellicioni
+        /* da questa riga alla riga alla fine: Alessandro Pellicioni*/
         const profiles = [
             {
                 name: "Marco, 19",
@@ -90,11 +89,11 @@
             document.getElementById("user-bio").innerText = p.bio;
             document.getElementById("user-img").src = p.img;
         }
-        //da qui alla fine di nuovo bucossi
+        /*da qui alla fine di giustini*/
         function nextProfile(liked) {
             count++;
 
-            // Mostra la pubblicità alla seconda interazione
+            
             if (count === 2) {
                 document.getElementById("ad-popup").classList.remove("hidden");
                 return;
@@ -124,7 +123,7 @@
             showProfile();
         }
 
-        // Avvia l'app
+  
         showProfile();
     </script>
 </body>
