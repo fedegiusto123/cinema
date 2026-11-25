@@ -4,211 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinemaMatch</title>
+    <title>MovieMatch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- PARTE 1 - LORENZO BUCOSSI -->
+    <!-- LORENZO: struttura principale del sito -->
+    <header>
+        <h1>🎬 MovieMatch</h1>
+        <p>Trova qualcuno con cui guardare un film!</p>
+    </header>
 
-<div class="container">
-
-    <h1>🎬 CinemaMatch</h1>
-
-    <div id="swipe-screen">
-
-        <div id="card" class="card">
-
-            <img id="user-img" src="" alt="Foto">
-
-            <div class="info">
-                <h2 id="user-name">Nome</h2>
-                <span id="movie-badge">Film</span>
-                <p id="user-bio">Bio...</p>
-            </div>
-
+    <main>
+        <!-- LORENZO: scheda del profilo -->
+        <div class="card">
+            <h2 id="nome">Luca, 18</h2>
+            <p id="film">🎥 Film preferito: Interstellar</p>
+            <p id="descrizione">Amo i film di fantascienza!</p>
         </div>
 
-
-<!-- PARTE 2 - KEVIN MOTOFOLEA -->
-
+        <!-- KEVIN: pulsanti Like e Passa -->
         <div class="buttons">
-
-            <button class="btn no" onclick="nextProfile(false)">
-                ❌ Salta
-            </button>
-
-            <button class="btn yes" onclick="nextProfile(true)">
-                ❤️ Ci sto!
-            </button>
-
+            <button class="pass" onclick="passa()">✖</button>
+            <button class="like" onclick="miPiace()">♥</button>
         </div>
 
-    </div>
-
-    <div id="match-screen" class="hidden">
-
-        <h2>🎉 È un Match!</h2>
-
-        <p id="match-text">Avete scelto lo stesso film!</p>
-
-        <button class="btn yes" onclick="resetApp()">
-            Torna ai film
-        </button>
-
-    </div>
-
-    <div id="ad-popup" class="hidden">
-
-        <div class="ad-box">
-
-            <h3>🍿 Offerta Popcorn!</h3>
-
-            <p>Prendi 2 menu al prezzo di 1 al cinema!</p>
-
-            <button onclick="closeAd()">Chiudi</button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- PARTE 3 - ALESSANDRO PELLICCIONI -->
-
-<script>
-
-const profiles = [
-
-    {
-        name: "Marco, 19",
-        movie: "Interstellar",
-        bio: "Adoro i film di fantascienza.",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT4LLCdIiScqX85rZEa3lXIZpizHaZhyGQQL352sHxav2TXN6SElHBqOim&s=10"
-    },
-
-    {
-        name: "Sara, 18",
-        movie: "Dune - Parte 2",
-        bio: "Cerco compagnia per i film epici.",
-        img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400"
-    },
-
-    {
-        name: "Kevin, 67",
-        movie: "Paura e delirio a Las Vegas",
-        bio: "Cerco i film più belli con le persone più belle.",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTitYXfECB1ITqkp5q_SuGm2QGsaHQSv0o8lCowh2uQ&s=10"
-    },
-
-    {
-        name: "Mohamedali, 33",
-        movie: "notte da leoni",
-        bio: "Cerco film emozionanti che fanno salire la suspense in sala.",
-        img: "https://it.wikipedia.org/wiki/Muhammad_Ali"
-    }
-
-];
-
-let index = 0;
-let count = 0;
-
-
-// MOSTRA IL PROFILO
-
-function showProfile() {
-
-    if (index >= profiles.length) {
-
-        document.getElementById("swipe-screen").innerHTML =
-        "<h3>Hai finito i film per oggi!</h3>";
-
-        return;
-    }
-
-    let p = profiles[index];
-
-    document.getElementById("user-name").innerText = p.name;
-
-    document.getElementById("movie-badge").innerText =
-    "Vuole vedere: " + p.movie;
-
-    document.getElementById("user-bio").innerText = p.bio;
-
-    document.getElementById("user-img").src = p.img;
-
-}
-
-
-// PASSA AL PROFILO SUCCESSIVO
-
-function nextProfile(liked) {
-
-    count++;
-
-    // MOSTRA LA PUBBLICITÀ DOPO DUE CLIC
-
-    if (count === 2) {
-
-        document.getElementById("ad-popup").classList.remove("hidden");
-
-        return;
-    }
-
-    if (liked) {
-
-        document.getElementById("swipe-screen").classList.add("hidden");
-
-        document.getElementById("match-screen").classList.remove("hidden");
-
-        document.getElementById("match-text").innerText =
-        `Anche a ${profiles[index].name} va di vedere "${profiles[index].movie}"!`;
-
-    } else {
-
-        index++;
-
-        showProfile();
-
-    }
-
-}
-
-
-function closeAd() {
-
-    document.getElementById("ad-popup").classList.add("hidden");
-
-    index++;
-
-    showProfile();
-
-}
-
-
-// RICOMINCIA L'APPLICAZIONE
-
-function resetApp() {
-
-    index = 0;
-
-    count = 0;
-
-    document.getElementById("match-screen").classList.add("hidden");
-
-    document.getElementById("swipe-screen").classList.remove("hidden");
-
-    showProfile();
-
-}
-
-
-
-
-showProfile();
-
-</script>
+        <!-- KEVIN: messaggio mostrato dopo la scelta -->
+        <h3 id="messaggio"></h3>
+    </main>
+
+    <script>
+        // KEVIN: elenco delle persone disponibili
+        let persone = [
+            {
+                nome: "Luca, 18",
+                film: "Interstellar",
+                descrizione: "Amo i film di fantascienza!"
+            },
+            {
+                nome: "Giulia, 19",
+                film: "Titanic",
+                descrizione: "Adoro i film romantici!"
+            },
+            {
+                nome: "Marco, 20",
+                film: "Harry Potter",
+                descrizione: "Sono un fan del fantasy!"
+            },
+            {
+                nome: "Sara, 18",
+                film: "Avatar",
+                descrizione: "Mi piacciono i mondi fantastici!"
+            }
+        ];
+
+        let indice = 0;
+
+        // ALESSANDRO: mostra le informazioni della persona
+        function mostraPersona() {
+            if (indice < persone.length) {
+                document.getElementById("nome").innerText =
+                    persone[indice].nome;
+
+                document.getElementById("film").innerText =
+                    "🎥 Film preferito: " + persone[indice].film;
+
+                document.getElementById("descrizione").innerText =
+                    persone[indice].descrizione;
+            } else {
+                document.querySelector(".card").innerHTML =
+                    "<h2>Non ci sono più persone!</h2>";
+
+                document.querySelector(".buttons").style.display = "none";
+            }
+        }
+
+        // ALESSANDRO: funzione del Like
+        function miPiace() {
+            document.getElementById("messaggio").innerText =
+                "❤️ È un Match!";
+
+            setTimeout(prossimaPersona, 1200);
+        }
+
+        // ALESSANDRO: funzione per passare una persona
+        function passa() {
+            document.getElementById("messaggio").innerText =
+                "Hai passato questa persona.";
+
+            setTimeout(prossimaPersona, 1200);
+        }
+
+        // ALESSANDRO: passa al profilo successivo
+        function prossimaPersona() {
+            indice++;
+            document.getElementById("messaggio").innerText = "";
+            mostraPersona();
+        }
+
+        // Avvio del sito
+        mostraPersona();
+    </script>
 
 </body>
 </html>
