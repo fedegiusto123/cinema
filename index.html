@@ -1,4 +1,4 @@
-/*da questa riga alla riga 24 Lorenzo bucossi*/
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -9,122 +9,206 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1>🎬 CinemaMatch</h1>
+<!-- PARTE 1 - LORENZO BUCOSSI -->
 
-     
-        <div id="swipe-screen">
-            <div id="card" class="card">
-                <img id="user-img" src="" alt="Foto">
-                <div class="info">
-                    <h2 id="user-name">Nome</h2>
-                    <span id="movie-badge">Film</span>
-                    <p id="user-bio">Bio...</p>
-                </div>
+<div class="container">
+
+    <h1>🎬 CinemaMatch</h1>
+
+    <div id="swipe-screen">
+
+        <div id="card" class="card">
+
+            <img id="user-img" src="" alt="Foto">
+
+            <div class="info">
+                <h2 id="user-name">Nome</h2>
+                <span id="movie-badge">Film</span>
+                <p id="user-bio">Bio...</p>
             </div>
-/*da questa riga alla riga 48 kevin motofelea*/
-            <div class="buttons">
-                <button class="btn no" onclick="nextProfile(false)">❌ Salta</button>
-                <button class="btn yes" onclick="nextProfile(true)">❤️ Ci sto!</button>
-            </div>
+
         </div>
 
->
-        <div id="match-screen" class="hidden">
-            <h2>🎉 È un Match!</h2>
-            <p id="match-text">Avete scelto lo stesso film!</p>
-            <button class="btn yes" onclick="resetApp()">Torna ai film</button>
+
+<!-- PARTE 2 - KEVIN MOTOFOLEA -->
+
+        <div class="buttons">
+
+            <button class="btn no" onclick="nextProfile(false)">
+                ❌ Salta
+            </button>
+
+            <button class="btn yes" onclick="nextProfile(true)">
+                ❤️ Ci sto!
+            </button>
+
         </div>
 
-        <div id="ad-popup" class="hidden">
-            <div class="ad-box">
-                <h3>🍿 Offerta Popcorn!</h3>
-                <p>Prendi 2 menu al prezzo di 1 al cinema!</p>
-                <button onclick="closeAd()">Chiudi</button>
-            </div>
-        </div>
     </div>
 
-    <script>
-        /* da questa riga alla riga alla fine: Alessandro Pellicioni*/
-        const profiles = [
-            {
-                name: "Marco, 19",
-                movie: "Interstellar",
-                bio: "Adoro i film di fantascienza.",
-                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT4LLCdIiScqX85rZEa3lXIZpizHaZhyGQQL352sHxav2TXN6SElHBqOim&s=10"
-            },
-            {
-                name: "Sara, 18",
-                movie: "Dune - Parte 2",
-                bio: "Cerco compagnia per i film epici.",
-                img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400"
-            },
-            {
-                name:"kevin,67",
-                movie:"paura e delirio a las vengas", 
-                bio:"cerco i film più belli con le persone più belle",
-                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTitYXfECB1ITqkp5q_SuGm2QGsaHQSv0o8lCowh2uQ&s=10"
-            },
-            {
-                name:"mohamedali, 33",
-                movie:"sweetie fox minecraft gameplay", 
-                bio:"cerco film emozionanti che fanno salire la suspence  in sala.ragazza bella", 
-                img:"https://www.gedistatic.it/content/gedi/img/huffingtonpost/2021/09/01/051328253-b989eac0-b3f5-4f7e-ab34-a3fdd3ecf6c9.jpg"
-            }
-        ];
+    <div id="match-screen" class="hidden">
 
-        let index = 0;
-        let count = 0;
+        <h2>🎉 È un Match!</h2>
 
-        function showProfile() {
-            if (index >= profiles.length) {
-                document.getElementById("swipe-screen").innerHTML = "<h3>Hai finito i film per oggi!</h3>";
-                return;
-            }
+        <p id="match-text">Avete scelto lo stesso film!</p>
 
-            let p = profiles[index];
-            document.getElementById("user-name").innerText = p.name;
-            document.getElementById("movie-badge").innerText = "Vuole vedere: " + p.movie;
-            document.getElementById("user-bio").innerText = p.bio;
-            document.getElementById("user-img").src = p.img;
-        }
-        /*da qui alla fine di giustini*/
-        function nextProfile(liked) {
-            count++;
+        <button class="btn yes" onclick="resetApp()">
+            Torna ai film
+        </button>
 
-            
-            if (count === 2) {
-                document.getElementById("ad-popup").classList.remove("hidden");
-                return;
-            }
+    </div>
 
-            if (liked) {
-                document.getElementById("swipe-screen").classList.add("hidden");
-                document.getElementById("match-screen").classList.remove("hidden");
-                document.getElementById("match-text").innerText = `Anche a ${profiles[index].name} va di vedere "${profiles[index].movie}"!`;
-            } else {
-                index++;
-                showProfile();
-            }
-        }
+    <div id="ad-popup" class="hidden">
 
-        function closeAd() {
-            document.getElementById("ad-popup").classList.add("hidden");
-            index++;
-            showProfile();
-        }
+        <div class="ad-box">
 
-        function resetApp() {
-            index = 0;
-            count = 0;
-            document.getElementById("match-screen").classList.add("hidden");
-            document.getElementById("swipe-screen").classList.remove("hidden");
-            showProfile();
-        }
+            <h3>🍿 Offerta Popcorn!</h3>
 
-  
+            <p>Prendi 2 menu al prezzo di 1 al cinema!</p>
+
+            <button onclick="closeAd()">Chiudi</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- PARTE 3 - ALESSANDRO PELLICCIONI -->
+
+<script>
+
+const profiles = [
+
+    {
+        name: "Marco, 19",
+        movie: "Interstellar",
+        bio: "Adoro i film di fantascienza.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT4LLCdIiScqX85rZEa3lXIZpizHaZhyGQQL352sHxav2TXN6SElHBqOim&s=10"
+    },
+
+    {
+        name: "Sara, 18",
+        movie: "Dune - Parte 2",
+        bio: "Cerco compagnia per i film epici.",
+        img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400"
+    },
+
+    {
+        name: "Kevin, 67",
+        movie: "Paura e delirio a Las Vegas",
+        bio: "Cerco i film più belli con le persone più belle.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTitYXfECB1ITqkp5q_SuGm2QGsaHQSv0o8lCowh2uQ&s=10"
+    },
+
+    {
+        name: "Mohamedali, 33",
+        movie: "notte da leoni",
+        bio: "Cerco film emozionanti che fanno salire la suspense in sala.",
+        img: "https://www.gedistatic.it/content/gedi/img/huffingtonpost/2021/09/01/051328253-b989eac0-b3f5-4f7e-ab34-a3fdd3ecf6c9.jpg"
+    }
+
+];
+
+let index = 0;
+let count = 0;
+
+
+// MOSTRA IL PROFILO
+
+function showProfile() {
+
+    if (index >= profiles.length) {
+
+        document.getElementById("swipe-screen").innerHTML =
+        "<h3>Hai finito i film per oggi!</h3>";
+
+        return;
+    }
+
+    let p = profiles[index];
+
+    document.getElementById("user-name").innerText = p.name;
+
+    document.getElementById("movie-badge").innerText =
+    "Vuole vedere: " + p.movie;
+
+    document.getElementById("user-bio").innerText = p.bio;
+
+    document.getElementById("user-img").src = p.img;
+
+}
+
+
+// PASSA AL PROFILO SUCCESSIVO
+
+function nextProfile(liked) {
+
+    count++;
+
+    // MOSTRA LA PUBBLICITÀ DOPO DUE CLIC
+
+    if (count === 2) {
+
+        document.getElementById("ad-popup").classList.remove("hidden");
+
+        return;
+    }
+
+    if (liked) {
+
+        document.getElementById("swipe-screen").classList.add("hidden");
+
+        document.getElementById("match-screen").classList.remove("hidden");
+
+        document.getElementById("match-text").innerText =
+        `Anche a ${profiles[index].name} va di vedere "${profiles[index].movie}"!`;
+
+    } else {
+
+        index++;
+
         showProfile();
-    </script>
+
+    }
+
+}
+
+
+function closeAd() {
+
+    document.getElementById("ad-popup").classList.add("hidden");
+
+    index++;
+
+    showProfile();
+
+}
+
+
+// RICOMINCIA L'APPLICAZIONE
+
+function resetApp() {
+
+    index = 0;
+
+    count = 0;
+
+    document.getElementById("match-screen").classList.add("hidden");
+
+    document.getElementById("swipe-screen").classList.remove("hidden");
+
+    showProfile();
+
+}
+
+
+
+
+showProfile();
+
+</script>
+
 </body>
 </html>
